@@ -151,7 +151,9 @@ def get_top_processes():
     processes = []
     for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent']):
         try:
-            processes.append(proc.info)
+            info = proc.info
+            if info['name'] and info['cpu_percent'] is not None and info['memory_percent'] is not None:
+                processes.append(info)
         except Exception:
             continue
 
