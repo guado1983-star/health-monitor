@@ -1,4 +1,5 @@
 import os
+import sys
 import csv
 import time
 import psutil
@@ -7,6 +8,7 @@ from datetime import datetime
 from colorama import Fore, Style, init
 from plyer import notification
 
+sys.stdout.reconfigure(encoding='utf-8')
 init(autoreset=True)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
